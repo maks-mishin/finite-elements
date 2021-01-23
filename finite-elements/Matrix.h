@@ -11,7 +11,7 @@ private:
     int num_rows_;
     int num_columns_;
 
-    vector<vector<int>> elements_;
+    vector<vector<double>> elements_;
 
 public:
     Matrix() {
@@ -36,14 +36,14 @@ public:
 
         num_rows_ = num_rows;
         num_columns_ = num_columns;
-        elements_.assign(num_rows, vector<int>(num_columns));
+        elements_.assign(num_rows, vector<double>(num_columns));
     }
 
-    int& At(int row, int column) {
+    double& At(int row, int column) {
         return elements_.at(row).at(column);
     }
 
-    int At(int row, int column) const {
+    double At(int row, int column) const {
         return elements_.at(row).at(column);
     }
 
@@ -143,7 +143,7 @@ istream& operator>>(istream& in, Matrix& matrix) {
 }
 
 ostream& operator<<(ostream& out, const Matrix& matrix) {
-    out << matrix.GetNumRows() << " " << matrix.GetNumColumns() << endl;
+    // << matrix.GetNumRows() << " " << matrix.GetNumColumns() << endl;
     for (int row = 0; row < matrix.GetNumRows(); ++row) {
         for (int column = 0; column < matrix.GetNumColumns(); ++column) {
             if (column > 0) {
